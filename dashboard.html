@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+
+    <!-- Sidebar/Navbar -->
+    <nav class="navbar bg-light flex-column p-4" id="sidebar">
+        <a href="#" class="navbar-brand">Dashboard</a>
+        <ul class="navbar-nav flex-column mt-4">
+            <li class="nav-item mb-3">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item mb-3">
+                <a class="nav-link" href="#">Settings</a>
+            </li>
+            <li class="nav-item">
+                <a id="logout" class="nav-link text-danger" href="#">Logout</a>
+            </li>
+        </ul>
+    </nav>
+
+   
+    <div id="dashboard" class="p-4">
+        <div class="card mb-4">
+            <h2>Dashboard Content</h2>
+            <p>Welcome to your dashboard. You can fetch data and perform actions here.</p>
+        </div>
+        <div class="card">
+            <div class="container-fluid">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>First Name (Arabic)</th>
+                                <th>Last Name (Arabic)</th>
+                                <th>Full Name (Latin)</th>
+                                <th>Gender</th>
+                                <th>Birthday</th>
+                                <th>Address</th>
+                                <th>Phone Number</th>
+                                <th>Email</th>
+                                <th>Category</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript -->
+     <script src="scripts.js"></script>
+     <script src="api/dashboard.js"></script>
+    <script>
+        // Check if the user is authenticated
+        function checkAuthentication() {
+            const accessToken = localStorage.getItem('accessToken');
+            if (!accessToken) {
+                // Redirect to login page if not authenticated
+                window.location.href = 'login.html'; // Change to your login page URL
+            }
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('refreshToken');
+            window.location.href = 'login.html'; // Redirect to login page
+        }
+
+        // Event listener for logout button
+        document.getElementById('logout').addEventListener('click', function(event) {
+            event.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You will be logged out!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, log out!',
+                cancelButtonText: 'No, stay logged in'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    logout();
+                }
+            });
+        });
+
+        // Check authentication on page load
+        checkAuthentication();
+    </script>
+</body>
+</html>

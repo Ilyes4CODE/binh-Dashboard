@@ -1,0 +1,135 @@
+/* General Body Dark Mode */
+body.dark-mode {
+    background-color: #000000; /* Set body background to black */
+    color: #ffffff; /* White text */
+}
+
+/* Force the navbar to turn black in dark mode */
+body.dark-mode #sidebar {
+    background-color: #000000 !important; /* Black background for the navbar */
+    color: #ffffff !important; /* White text for navbar */
+}
+
+body.dark-mode #sidebar a {
+    color: #ffffff !important; /* White text for links */
+}
+
+body.dark-mode #sidebar a:hover {
+    background-color: #333333 !important; /* Lighter black on hover */
+}
+
+/* Dark mode for the main dashboard content */
+#dashboard.dark-mode {
+    background-color: #000000; /* Black background for dashboard */
+    color: #ffffff; /* White text */
+}
+
+/* Card and Table Dark Mode */
+body.dark-mode .card {
+    background-color: #000000; /* Black background for cards */
+    border-color: #333; /* Darker border */
+    color: #ffffff; /* White text inside cards */
+}
+
+body.dark-mode table {
+    background-color: #000000; /* Black table background */
+    color: #ffffff; /* White text inside the table */
+}
+
+body.dark-mode thead {
+    background-color: #1c1c1c; /* Dark header for table */
+    color: #ffffff; /* White text for table headers */
+}
+
+body.dark-mode tbody tr {
+    background-color: #000000; /* Black background for table rows */
+    border-bottom: 1px solid #444; /* Darker border between rows */
+}
+
+body.dark-mode tbody tr:hover {
+    background-color: #333333; /* Slightly lighter on hover */
+}
+
+/* Dark Mode for Buttons */
+body.dark-mode button {
+    background-color: #000000; /* Black background for buttons */
+    color: #ffffff; /* White text */
+}
+
+body.dark-mode button:hover {
+    background-color: #333333; /* Lighter black on hover */
+}
+
+/* Sidebar Styles */
+#sidebar {
+    min-width: 200px;
+    height: 100vh; /* Make sure the sidebar takes up the full height */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f8f9fa; /* Light by default */
+    padding-top: 10px; /* Reduced padding */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    justify-content: flex-start; /* Align items at the top */
+}
+
+/* Navbar link styles */
+#sidebar .navbar-nav {
+    flex-grow: 1;
+    margin-top: 0; /* Remove margin at the top */
+    padding: 0; /* Remove extra padding */
+}
+
+#sidebar .nav-item {
+    margin: 10px 0; /* Add spacing between items */
+}
+
+/* Dark Mode Icon */
+#dark-mode-toggle {
+    cursor: pointer;
+    font-size: 1.5rem; /* Adjust size as needed */
+    color: #000000; /* Default color */
+    z-index: 1050;
+    margin: 5%;
+     /* Ensure it's above other content */
+}
+
+body.dark-mode #dark-mode-toggle {
+    color: #ffffff; /* White icon in dark mode */
+}
+
+/* Dark Mode Toggle Icon Hover Effect */
+#dark-mode-toggle:hover {
+    color: #333333; /* Slightly lighter color on hover */
+}
+
+/* Adjust the positioning of the icon */
+.position-fixed {
+    position: relative;
+}
+
+.top-0 {
+    top: 0;
+}
+
+.end-0 {
+    right: 0;
+}
+
+.p-3 {
+    padding: 1rem;
+}
+
+/* Utility */
+.card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+#dashboard {
+    margin-left: 200px; /* Adjust width for content based on navbar width */
+    width: calc(100% - 200px);
+    background-color: #ffffff;
+}
